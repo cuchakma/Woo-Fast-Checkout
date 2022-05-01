@@ -20,15 +20,14 @@
 
 final class WooFastCheckout {
 
-	static $instance = null;
-
-	public function __construct() { 
+	public static $instance = null;
+	public function __construct() {
 		$this->setup_wfc_enviroment();
 		$this->includes();
 	}
 
 	public static function instance() {
-		if( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 		return self::$instance;
@@ -37,15 +36,15 @@ final class WooFastCheckout {
 	public function setup_wfc_enviroment() {
 		$this->define( 'WFC_VERSION', '1.0.0' );
 		$this->define( 'WFC_FILE_PATH', __FILE__ );
-		$this->define( 'PLUGIN_WOO_DIR', plugin_dir_path( __DIR__ ) . 'woocommerce');
+		$this->define( 'PLUGIN_WOO_DIR', plugin_dir_path( __DIR__ ) . 'woocommerce' );
 		$this->define( 'WFC_BASE_FILE_NAME', plugin_basename( WFC_FILE_PATH ) );
 		$this->define( 'WFC_BASE_FILE_PATH', dirname( WFC_BASE_FILE_NAME ) );
 		$this->define( 'WFC_PLUGIN_DIR', plugin_dir_path( WFC_FILE_PATH ) );
 		$this->define( 'WFC_PLUGIN_URL', plugin_dir_url( WFC_FILE_PATH ) );
-		$this->define( 'WFC_INCLUDES_DIR', WFC_PLUGIN_DIR . 'includes');
-		$this->define( 'WFC_TEMPLATES', WFC_PLUGIN_DIR . 'woocommerce/cart');
-		$this->define( 'WFC_ASSETS_DIR', WFC_PLUGIN_DIR . 'assets');
-		$this->define( 'WFC_ASSETS_URL', WFC_PLUGIN_URL . 'assets');
+		$this->define( 'WFC_INCLUDES_DIR', WFC_PLUGIN_DIR . 'includes' );
+		$this->define( 'WFC_TEMPLATES', WFC_PLUGIN_DIR . 'templates/' );
+		$this->define( 'WFC_ASSETS_DIR', WFC_PLUGIN_DIR . 'assets' );
+		$this->define( 'WFC_ASSETS_URL', WFC_PLUGIN_URL . 'assets' );
 	}
 
 	private function is_request( $type ) {
@@ -66,7 +65,7 @@ final class WooFastCheckout {
 		require WFC_INCLUDES_DIR . '/wfc-functions.php';
 
 		//load wpc includes files
-		if($this->is_request('frontend')) {
+		if ( $this->is_request( 'frontend' ) ) {
 			require WFC_INCLUDES_DIR . '/class-wfc-assets.php';
 			require WFC_INCLUDES_DIR . '/class-wfc-front-templates.php';
 			require WFC_INCLUDES_DIR . '/class-wfc-ajax.php';
@@ -74,14 +73,14 @@ final class WooFastCheckout {
 	}
 
 	private function define( $name, $value ) {
-		if( ! defined( $name ) ) {
+		if ( ! defined( $name ) ) {
 			define( $name, $value );
 		}
 	}
 }
 
-function WooFastCheckout() {
+function woo_fast_checkout() {
 	return WooFastCheckout::instance();
 }
 
-add_action('plugin_loaded', 'WooFastCheckout');
+add_action( 'plugin_loaded', 'woo_fast_checkout' );

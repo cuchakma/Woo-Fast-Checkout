@@ -14,6 +14,8 @@ class WFC_AJAX {
 		foreach ( $ajax_wfc_events as $ajax_events ) {
 			add_action( 'wp_ajax_nopriv_' . $ajax_events, array( __CLASS__, $ajax_events ) );
 		}
+
+		add_filter( 'woocommerce_add_to_cart_fragments', array( __CLASS__, 'woocommerce_add_product_markup' ), 999, 1 );
 	}
 
 	public static function wfc_apply_coupon() {
@@ -27,12 +29,16 @@ class WFC_AJAX {
 
 		$wc_coupon_code = wc_format_coupon_code( wp_unslash( $_POST['wfc_coupon_code'] ) );
 
-        if ( ! empty( $_POST['coupon_code'] ) ) {
-			WC()->cart->add_discount( $wc_coupon_code ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		if ( ! empty( $_POST['coupon_code'] ) ) {
+			WC()->cart->add_discount( $wc_coupon_code ); 
 		} else {
 			wc_add_notice( WC_Coupon::get_generic_coupon_error( WC_Coupon::E_WC_COUPON_PLEASE_ENTER ), 'error' );
 		}
 
+	}
+
+	public static function woocommerce_add_product_markup( $fragment_markup ) {
+		return $fragment_markup;
 	}
 }
 

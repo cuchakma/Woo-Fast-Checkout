@@ -11,7 +11,7 @@
 <div class="offcanvas-body">
     <?php
     if ( defined( 'WC_TEMPLATE_PATH' ) ) {
-        wfc_locate_template('cart/wfc-cart-body.php');
+        wfc_load_template('wfc-cart-body.php', array(), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/');
     }
     ?>
 </div>
