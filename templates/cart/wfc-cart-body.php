@@ -4,7 +4,7 @@ $cart_products = WC()->cart->get_cart();
 
 ?>
 	<!-- Cart Content start -->
-	<section class="shopping_cart_content">
+	<section class="wfc_shopping_cart_content">
 
 		<div class="container">
 
