@@ -41,15 +41,21 @@ class WFC_ASSETS{
     public function wfc_styles() {
         return array(
             array(
+                'handle' => 'wfc-fontawsome',
+                'src'    => WFC_ASSETS_URL . '/css/fontawsome/all.min.css',
+                'deps'   => '',
+                'ver'    => rand()
+            ),
+            array(
                 'handle' => 'wfc-bootstrap',
-                'src'    => WFC_ASSETS_URL . '/css/bootstrap.min.css',
+                'src'    => WFC_ASSETS_URL . '/css/bootstrap.css',
                 'deps'   => '',
                 'ver'    => rand()
             ),
             array(
                 'handle' => 'wfc-css',
                 'src'    => WFC_ASSETS_URL . '/css/custom.css',
-                'deps'   => '',
+                'deps'   => array('wfc-fontawsome', 'wfc-bootstrap'),
                 'ver'    => rand()
             )
         );

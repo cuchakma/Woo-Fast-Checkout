@@ -10,9 +10,10 @@ class WFC_FRONT_TEMPLATES{
         wfc_load_template('wfc-cart-template.php', array(), 'woocommerce-fast-checkout/templates/main-template', WFC_TEMPLATES . 'main-template/');
     }
 
-    public static function wfc_render_products_markup( $woocommerce_cart ) {
-
+    public static function wfc_products_markup( $woocommerce_cart ) {
+        
     }
+
 }
 
 new WFC_FRONT_TEMPLATES();

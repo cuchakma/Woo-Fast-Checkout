@@ -36,9 +36,6 @@ final class WooFastCheckout {
 	public function setup_wfc_enviroment() {
 		$this->define( 'WFC_VERSION', '1.0.0' );
 		$this->define( 'WFC_FILE_PATH', __FILE__ );
-		$this->define( 'PLUGIN_WOO_DIR', plugin_dir_path( __DIR__ ) . 'woocommerce' );
-		$this->define( 'WFC_BASE_FILE_NAME', plugin_basename( WFC_FILE_PATH ) );
-		$this->define( 'WFC_BASE_FILE_PATH', dirname( WFC_BASE_FILE_NAME ) );
 		$this->define( 'WFC_PLUGIN_DIR', plugin_dir_path( WFC_FILE_PATH ) );
 		$this->define( 'WFC_PLUGIN_URL', plugin_dir_url( WFC_FILE_PATH ) );
 		$this->define( 'WFC_INCLUDES_DIR', WFC_PLUGIN_DIR . 'includes' );
@@ -61,12 +58,13 @@ final class WooFastCheckout {
 	}
 
 	public function includes() {
-		//load wps default functions
+		// load wps default functions
 		require WFC_INCLUDES_DIR . '/wfc-functions.php';
 
-		//load wpc includes files
+		// load wpc includes files
 		if ( $this->is_request( 'frontend' ) ) {
 			require WFC_INCLUDES_DIR . '/class-wfc-assets.php';
+			require WFC_INCLUDES_DIR . '/class-woo-actions.php';
 			require WFC_INCLUDES_DIR . '/class-wfc-front-templates.php';
 			require WFC_INCLUDES_DIR . '/class-wfc-ajax.php';
 		}
@@ -80,7 +78,7 @@ final class WooFastCheckout {
 }
 
 function woo_fast_checkout() {
-	return WooFastCheckout::instance();
+	WooFastCheckout::instance();
 }
 
 add_action( 'plugin_loaded', 'woo_fast_checkout' );
