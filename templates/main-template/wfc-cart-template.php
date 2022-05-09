@@ -8,7 +8,7 @@
     <div class="wfc offcanvas-header">
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="wfc-offcanvas-body">
         <?php
         if ( defined( 'WC_TEMPLATE_PATH' ) ) {
             wfc_load_template('wfc-cart-body.php', array(), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/');

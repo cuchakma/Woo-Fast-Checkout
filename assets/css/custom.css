@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@font-face {
+    src: url(fonts/Dosis-VariableFont_wght.ttf);
+    font-family: Dosis;
+}
 
-body{
-    font-family: 'Dosis', sans-serif;
+.wfc-offcanvas-body{
+    font-family: Dosis;
     font-size: 16px;
     font-weight: 400;
+    overflow-y: auto;
 }
 
 
