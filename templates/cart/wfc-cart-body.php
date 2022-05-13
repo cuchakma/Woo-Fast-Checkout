@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * WooCommerce Cart Page
+ * 
+ * This Template Can Be Overwritten Inside A Theme
+ * 
+ * @version 0.0.1
+ * 
+ */
 $cart_products = WC()->cart->get_cart();
 
 ?>
@@ -30,8 +37,8 @@ $cart_products = WC()->cart->get_cart();
 								</tr>
 
 							</thead>
-							
-							<tbody>
+
+							<tbody class="wfc-products-main">
 
 								<?php
 
@@ -92,21 +99,22 @@ $cart_products = WC()->cart->get_cart();
 										<?php
 								}
 								?>
-										<tr>
-											<td colspan="3">
-												<div class="continue_shop_btn">
-												<button class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Continue Shopping</button>
-												</div>
-											</td>
-
-											<td colspan="3" id="sc_btn_align">
-												<div class="sc_btn_update">
-													<button class="btn btn-outline-success sc_update_btn"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Update Cart</button>
-												</div>
-											</td>
-										</tr>
 							</tbody>
-							
+
+							<tr>
+								<td colspan="3">
+									<div class="continue_shop_btn">
+									<button class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Continue Shopping</button>
+									</div>
+								</td>
+
+								<td colspan="3" id="sc_btn_align">
+									<div class="sc_btn_update">
+										<button class="btn btn-outline-success sc_update_btn"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Update Cart</button>
+									</div>
+								</td>
+							</tr>	
+												
 						</table>
 
 					</div>
@@ -114,7 +122,6 @@ $cart_products = WC()->cart->get_cart();
 				</div>
 
 			</div>
-		
 			<div class="row">
 
 				<div class="col-12">
@@ -150,7 +157,6 @@ $cart_products = WC()->cart->get_cart();
 					</div>
 
 				</div>
-	
 				<div class="col-12">
 
 					<div class="sc_price_total">
@@ -172,7 +178,6 @@ $cart_products = WC()->cart->get_cart();
 									<p class="sc_pt_subtotal_price">$125.00</p>
 								</td>
 							</tr>
-			
 							<tr>
 								<td>
 									<h5 class="sc_pt_shipping">Shipping</h5>
@@ -182,7 +187,6 @@ $cart_products = WC()->cart->get_cart();
 									<p class="sc_pt_shipping_price">$125.00</p>
 								</td>
 							</tr>
-			
 							<tr>
 								<td>
 									<h5 class="sc_pt_total">Total</h5>
@@ -192,7 +196,6 @@ $cart_products = WC()->cart->get_cart();
 									<p class="sc_pt_total_price">$125.00</p>
 								</td>
 							</tr>
-			
 							<tr>
 								<td colspan="2">
 
@@ -214,8 +217,7 @@ $cart_products = WC()->cart->get_cart();
 
 			</div>
 
-		</div>
-		
+		</div>	
 	</section>
 	<!-- Cart Content end -->
 <?php
