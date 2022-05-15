@@ -67,7 +67,7 @@ $cart_products = WC()->cart->get_cart();
 									?>
 											<tr>
 												<td>
-													<?php printf( '<a href="%s" class="sc_remove_icon btn btn-dange" data-product-id="%d" data-product-sku="%d"><i class="fa-solid fa-trash"></i>%s</a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), 'Remove' ); ?>
+													<?php printf( '<a href="%s" class="wfc_remove_product btn btn-dange" data-product-id="%d" data-product-sku="%d" data-cart_item_key="%s"><i class="fa-solid fa-trash"></i>%s</a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), esc_attr( $cart_key ), 'Remove' ); ?>
 												</td>
 
 												<td>
