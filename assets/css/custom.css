@@ -55,8 +55,8 @@ svg.wfc-loader {
   /* width: 15%; */
 }
 
-.shopping_cart_table table thead th {
-  background-color: #fd8c66;
+.wfc-headers tr th {
+  background-color: #fd8c66 !important;
   color: #ffffff;
   border: none;
 }
@@ -95,7 +95,16 @@ svg.wfc-loader {
   text-align: center;
 }
 
-.sc_total {
+.wfc-continue-update{
+  display: inline-flex;
+  align-items: center;
+  gap:143px;
+  border: 1px solid rgb(237 239 241);
+  margin-bottom: 13px;
+  border-width: 1.5px;
+  padding: 13px;
+  margin-left: 11px;
+  margin-right: 11px;
 }
 
 .shopping_cart_table #sc_btn_align {
@@ -103,9 +112,8 @@ svg.wfc-loader {
 }
 
 .sc_btn_update {
-  margin: 10px 0;
-  /* padding-right: 20px; */
   text-align: center;
+  white-space: nowrap;
 }
 
 .sc_update_btn {
@@ -132,6 +140,7 @@ svg.wfc-loader {
 }
 
 .continue_shop_btn {
+  white-space: nowrap;
 }
 
 .continue_shop_btn button:focus {

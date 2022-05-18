@@ -11,9 +11,15 @@
 	</div>
 	<div class="wfc-offcanvas-body">
 		<?php
-		if ( defined( 'WC_TEMPLATE_PATH' ) ) {
-			wfc_load_template( 'wfc-cart-body.php', array(), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
-		}
+
+			$cart = WC()->cart;
+
+			$cart_products = $cart->get_cart();
+
+			$cart_status = $cart->is_empty();
+
+			wfc_load_template( 'wfc-cart.php', array( 'cart_products' => $cart_products, 'cart_status' => $cart_status ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
+
 		?>
 	</div>
 </div>
