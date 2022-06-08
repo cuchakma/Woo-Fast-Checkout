@@ -1,10 +1,7 @@
-<thead class="wfc-headers">
-    <tr>
-        <th scope="col" class="product-removal">Remove</th>
-        <th scope="col" class="product-image">Image</th>
-        <th scope="col" class="product-details">Product</th>
-        <th scope="col" class="product-price">Price</th>
-        <th scope="col" class="product-quantity">Quantity</th>
-        <th scope="col" class="product-line-price">Total</th>
-    </tr>
-</thead>
+<?php
+	/** Cart body header Notice start **/
+?>
+	<h5 class="wfc_title">You have <span class="wfc_count-item">3</span> item(s) in your cart</h5>
+<?php
+	/** Cart body header Notice end **/
+?>

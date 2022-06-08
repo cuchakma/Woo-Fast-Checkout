@@ -42,7 +42,7 @@ class WFC_ASSETS {
 		return array(
 			array(
 				'handle' => 'wfc-fontawsome',
-				'src'    => WFC_ASSETS_URL . '/css/fontawsome/all.min.css',
+				'src'    => WFC_ASSETS_URL . '/css/fontawsome/all.css',
 				'deps'   => '',
 				'ver'    => rand(),
 			),

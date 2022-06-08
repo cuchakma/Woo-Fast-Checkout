@@ -1,13 +1,4 @@
-<?php
-if ( empty( $cart_products ) ) {
-	?>
-			<h5 class="wfc-no-products">No Products In Cart</h5>
-	<?php
-	return;
-}
-?>
-
-<tbody class="wfc-products-main">
+<div class="wfc_list_wrap">
 
 	<?php
 
@@ -34,40 +25,76 @@ if ( empty( $cart_products ) ) {
 		$product_subtotal = WC()->cart->get_product_subtotal( $product_data, $product_qty );
 
 		?>
-					<tr>
-						<td>
-						<?php printf( '<a href="%s" class="wfc_remove_product btn btn-dange" data-product-id="%d" data-product-sku="%d" data-cart_item_key="%s"><i class="fa-solid fa-trash"></i>%s</a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), esc_attr( $cart_key ), 'Remove' ); ?>
-						</td>
+					<ul class="wfc_list wfc_list_item">
 
-						<td>
-						<?php echo wp_kses_post( $product_thumbnail ); ?>
-						</td>
+								<li class="wfc_product-item">
 
-						<td>
-							<h5 class="sc_product_title">
-							<?php echo wp_kses_post( $product_name ); ?>
-							</h5>
-						</td>
+									<a href="#" class="thumb">
 
-						<td>
-							<p class="sc_product_price">
-							<?php echo wp_kses_post( $product_price ); ?>
-							</p>
-						</td>
+									   <?php echo wp_kses_post( $product_thumbnail ); ?>
 
-						<td>
-							<input type="number" class="sc_product_quantity" value="<?php echo wp_kses_post( $product_qty ); ?>">
-						</td>
+									</a>
+		
+									<div class="info">
 
-						<td>
-							<p class="sc_total">
-							<?php echo wp_kses_post( $product_subtotal ); ?>
-							</p>
-						</td>
-					</tr>
+										<a href="#" class="product-name"><?php echo wp_kses_post( $product_name ); ?></a>
+
+										<div class="wfc_product-item-qty">
+
+											<span class="number price">
+
+												<span>
+
+													<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_qty ); ?>"><?php echo wp_kses_post( $product_qty ); ?></span>
+
+												</span>
+											</span>
+
+											<span class="qty">Quantity: &nbsp;
+
+												<div class="wfc_quantity">
+
+													<form>
+
+														<div class="wfc_quantity_row">
+															
+															<span class="wfc_quantity_col wfc_quantity_col_minus wfc_quantity_button">
+
+																<i class="fa-solid fa-minus"></i>
+
+															</span>
+
+															<span class="wfc_quantity_col wfc_quantity_col_input">
+
+																<input type="number" id="quantity_121" class="wfc_input_text num_qty text" step="1" min="1" max="" name="quantity" value="<?php echo wp_kses_post( $product_qty ); ?>" title="Qty" placeholder="" inputmode="numeric">
+
+															</span>
+
+															<span class="wfc_quantity_col wfc_quantity_col_plus wfc_quantity_button">
+
+																<i class="fa-solid fa-plus"></i>
+
+															</span>
+
+														</div>
+
+													</form>
+
+												</div>
+
+											</span>
+
+										</div>
+
+									</div>
+		
+									<?php printf( '<a href="%s" class="js-remove-item remove" data-product-id="%d" data-product-sku="%d" data-cart_item_key="%s" title="%s"><i class="fa-solid fa-square-xmark"></i></a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), esc_attr( $cart_key ), 'Remove' ); ?>
+
+								</li>
+					</ul>
 			<?php
 	}
 
 	?>
 
-</tbody>
+</div>

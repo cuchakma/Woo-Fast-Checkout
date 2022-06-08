@@ -7,22 +7,15 @@
  * @version 0.0.1
  */
 ?>
-	<!-- Cart Content start -->
-	<section class="wfc_shopping_cart_content">
+	<section class="wfc_cart_inner">
 
-		<div class="container">
+		<div class="wfc_cart_wrapper">
 
-			<div class="row">
+			<div class="wfc_cart_body">	
+					<?php
 
-				<h4 class="shopping_cart_title pt-2 pb-3">Cart Info</h4>
+						wfc_load_template( 'wfc-cart-headers.php', array( '' ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
 
-				<?php if ( ! $cart_status ) { ?>
-
-					<table class="wfc-table table table-bordered table-responsive">
-						
-						<?php wfc_load_template( 'wfc-cart-headers.php', array( '' ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' ); ?>
-						
-						<?php
 						wfc_load_template(
 							'wfc-product-list.php',
 							array(
@@ -32,38 +25,41 @@
 							'woocommerce-fast-checkout/templates/cart',
 							WFC_TEMPLATES . 'cart/'
 						);
-						?>
-						
-					</table>
-
-						<?php wfc_load_template( 'wfc-cart-others.php', array( '' ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' ); ?>
 
 
-				<?php } else { ?>
-					
-						<?php
-						wfc_load_template(
-							'wfc-product-list.php',
-							array(
-								'cart_products' => $cart_products,
-								'cart_status'   => $cart_status,
-							),
-							'woocommerce-fast-checkout/templates/cart',
-							WFC_TEMPLATES . 'cart/'
-						);
 						?>
 
-					<?php } ?>
+					<div class="wfc_cart_footer">
+
+						<div class="wfc_cart_footer_top">
+
+							<?php
+								wfc_load_template(
+									'wfc-cart-coupon.php',
+									array(
+										'cart_products' => $cart_products,
+										'cart_status'   => $cart_status,
+									),
+									'woocommerce-fast-checkout/templates/cart',
+									WFC_TEMPLATES . 'cart/'
+								);
+
+								wfc_load_template(
+									'wfc-cart-total.php',
+									array(
+										'cart_products' => $cart_products,
+										'cart_status'   => $cart_status,
+									),
+									'woocommerce-fast-checkout/templates/cart',
+									WFC_TEMPLATES . 'cart/'
+								);
+								?>
+	
+						</div>
+
+					</div>
 
 			</div>
-
-			<?php if ( ! $cart_status ) { ?>
-					
-					<?php wfc_load_template( 'wfc-cart-coupon.php', array( 'cart_products' => $cart_products ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' ); ?>
-
-					<?php wfc_load_template( 'wfc-cart-total.php', array( 'cart_products' => $cart_products ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' ); ?>
-
-			<?php } ?>
 
 		</div>	
 	</section>

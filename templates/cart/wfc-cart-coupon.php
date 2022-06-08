@@ -1,48 +1,22 @@
-<div class="wfc-coupon col-12">
+<?php
+	/** Cart Coupon Start **/
+?>
+<div class="wfc_cart_footer_top_left">
 
-    <div class="sc_coupon">
+	<div class="wfc_applyCouponCode">
 
-        <table class="table table-bordered table-responsive">
+		<button class="wfc_applyCouponCodeBtn text_change wfc_applyCouponCodeBtnStyle">Have any Coupon?</button>
 
-            <tr>
+		<form action="" class="wfc_applyCouponCodeForm">
 
-                <td>
+			<input type="text" placeholder="Coupon Code" name="couponCode" class="wfc_applyCouponCodeField">
 
-                    <h3 class="sc_coupon_title">Coupon</h3>
+		</form>
 
-                    <div class="coupon_form">
-
-                        <form action="#">
-
-                            <div class="row g-3">
-
-                                <div class="col-lg-8 col-md-8">
-
-                                    <input type="text" class="form-control coupon_code_box" placeholder="Coupon Code">
-
-                                </div>
-                                
-                                <div class="col-lg-4 col-md-4">
-
-                                    <div class="btn_coupon_code">
-
-                                        <button type="submit" class="btn btn-outline-primary coupon_code_btn">Apply Coupon</button>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                </td>
-
-            </tr>
-
-        </table>
-
-    </div>
+	</div>
 
 </div>
+
+<?php
+	/** Cart Coupon Start **/
+?>
