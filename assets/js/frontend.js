@@ -1,5 +1,6 @@
 jQuery(document).ready(
     (function ($) {
+        woo_open_coupon();
         woo_update_cart();
         woo_remove_product();
         add_to_cart();
@@ -95,6 +96,29 @@ jQuery(document).ready(
         function removeLoader() {
             $("svg.wfc-loader").css("display", "none");
             $("section.wfc_shopping_cart_content").removeClass("wfc_meta");
+        }
+
+        function woo_open_coupon() {
+            $( ".wfc_applyCouponCodeBtn" ).click(function() {
+                
+                var $this = $(this);
+                
+                $this.toggleClass("text_change");
+            
+                if ($this.hasClass("text_change")) {
+            
+                    $this.html("Have any Coupon?");
+                    $this.removeClass("btn btn-primary").addClass("wfc_applyCouponCodeBtnStyle");
+                    $( "input.wfc_applyCouponCodeField" ).hide();
+            
+                } else {
+            
+                    $this.html("Coupon");
+                    $this.addClass("btn btn-primary").removeClass("wfc_applyCouponCodeBtnStyle");
+                    $( "input.wfc_applyCouponCodeField" ).show( "slow", "linear" );
+            
+                }
+            });
         }
     })(jQuery)
 );
