@@ -53,9 +53,19 @@
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
 								);
-								?>
+
+							?>
 	
 						</div>
+
+							<?php
+								wfc_load_template(
+									'wfc-footer.php',
+									array(''),
+									'woocommerce-fast-checkout/templates/cart',
+									WFC_TEMPLATES . 'cart/'
+								);
+							?>
 
 					</div>
 

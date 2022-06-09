@@ -25,73 +25,86 @@
 		$product_subtotal = WC()->cart->get_product_subtotal( $product_data, $product_qty );
 
 		?>
-					<ul class="wfc_list wfc_list_item">
+			<ul class="wfc_list wfc_list_item">
 
-								<li class="wfc_product-item">
+						<?php
 
-									<a href="#" class="thumb">
+							if( $cart_status ) {
 
-									   <?php echo wp_kses_post( $product_thumbnail ); ?>
+								?>
+									<li class="wfc_no_product">
+										No Product in Cart
+									</li>
+								<?php
 
-									</a>
-		
-									<div class="info">
+							} else { 
+								?>
+									<li class="wfc_product-item">
 
-										<a href="#" class="product-name"><?php echo wp_kses_post( $product_name ); ?></a>
+										<a href="#" class="thumb">
 
-										<div class="wfc_product-item-qty">
+										<?php echo wp_kses_post( $product_thumbnail ); ?>
 
-											<span class="number price">
+										</a>
+			
+										<div class="info">
 
-												<span>
+											<a href="#" class="product-name"><?php echo wp_kses_post( $product_name ); ?></a>
 
-													<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_qty ); ?>"><?php echo wp_kses_post( $product_qty ); ?></span>
+											<div class="wfc_product-item-qty">
+
+												<span class="number price">
+
+													<span>
+
+														<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_qty ); ?>"><?php echo wp_kses_post( $product_qty ); ?></span>
+
+													</span>
+												</span>
+
+												<span class="qty">Quantity: &nbsp;
+
+													<div class="wfc_quantity">
+
+														<form>
+
+															<div class="wfc_quantity_row">
+																
+																<span class="wfc_quantity_col wfc_quantity_col_minus wfc_quantity_button">
+
+																	<i class="fa-solid fa-minus"></i>
+
+																</span>
+
+																<span class="wfc_quantity_col wfc_quantity_col_input">
+
+																	<input type="number" id="quantity_121" class="wfc_input_text num_qty text" step="1" min="1" max="" name="quantity" value="<?php echo wp_kses_post( $product_qty ); ?>" title="Qty" placeholder="" inputmode="numeric">
+
+																</span>
+
+																<span class="wfc_quantity_col wfc_quantity_col_plus wfc_quantity_button">
+
+																	<i class="fa-solid fa-plus"></i>
+
+																</span>
+
+															</div>
+
+														</form>
+
+													</div>
 
 												</span>
-											</span>
 
-											<span class="qty">Quantity: &nbsp;
-
-												<div class="wfc_quantity">
-
-													<form>
-
-														<div class="wfc_quantity_row">
-															
-															<span class="wfc_quantity_col wfc_quantity_col_minus wfc_quantity_button">
-
-																<i class="fa-solid fa-minus"></i>
-
-															</span>
-
-															<span class="wfc_quantity_col wfc_quantity_col_input">
-
-																<input type="number" id="quantity_121" class="wfc_input_text num_qty text" step="1" min="1" max="" name="quantity" value="<?php echo wp_kses_post( $product_qty ); ?>" title="Qty" placeholder="" inputmode="numeric">
-
-															</span>
-
-															<span class="wfc_quantity_col wfc_quantity_col_plus wfc_quantity_button">
-
-																<i class="fa-solid fa-plus"></i>
-
-															</span>
-
-														</div>
-
-													</form>
-
-												</div>
-
-											</span>
+											</div>
 
 										</div>
+			
+										<?php printf( '<a href="%s" class="js-remove-item remove" data-product-id="%d" data-product-sku="%d" data-cart_item_key="%s" title="%s"><i class="fa-solid fa-square-xmark"></i></a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), esc_attr( $cart_key ), 'Remove' ); ?>
 
-									</div>
-		
-									<?php printf( '<a href="%s" class="js-remove-item remove" data-product-id="%d" data-product-sku="%d" data-cart_item_key="%s" title="%s"><i class="fa-solid fa-square-xmark"></i></a>', esc_url( wc_get_cart_remove_url( $cart_key ) ), filter_var( $product_id, FILTER_SANITIZE_NUMBER_INT ), filter_var( $product_qty, FILTER_SANITIZE_NUMBER_INT ), esc_attr( $cart_key ), 'Remove' ); ?>
-
-								</li>
-					</ul>
+									</li>	
+								<?php } ?>
+				</ul>
 			<?php
 	}
 
