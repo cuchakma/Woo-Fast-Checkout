@@ -38,27 +38,9 @@ class WFC_AJAX {
 
 	public static function wfc_remove_product() {
 
-		global $product_remove_notice;
-
 		$cart_item_key = isset( $_POST['cart_item_key'] ) ? sanitize_text_field( $_POST['cart_item_key'] ) : '';
 
-		$cart_product = WC()->cart->get_cart_item( $cart_item_key );
-
-		$product_object = wc_get_product( $cart_product['product_id'] );
-
 		if ( WC()->cart->remove_cart_item( $cart_item_key ) ) {
-
-			if ( $product_object && $product_object->is_in_stock() && $product_object->has_enough_stock( $cart_product['quantity'] ) ) {
-
-				$product_remove_notice = sprintf( '<div class="mbh-information mbh-notification-box">%s Removed. ', esc_attr( $product_object->get_name() ) );
-
-				$product_remove_notice .= '<a href="' . esc_url( wc_get_cart_undo_url( $cart_item_key ) ) . '" class="restore-item">Undo?</a></div>';
-
-			} else {
-
-				$product_remove_notice = sprintf( '<div class="mbh-information mbh-notification-box">%s Removed. </div>', esc_attr( $product_object->get_name() ) );
-
-			}
 
 			WC_AJAX::get_refreshed_fragments();
 

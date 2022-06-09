@@ -3,7 +3,7 @@ jQuery(document).ready(
         woo_open_coupon();
         woo_update_cart();
         woo_remove_product();
-        add_to_cart();
+        //add_to_cart();
 
         function add_to_cart() {
             $(document).on('added_to_cart', function (button, fragments, cart_hash) {
@@ -100,7 +100,7 @@ jQuery(document).ready(
 
         function woo_open_coupon() {
             $( ".wfc_applyCouponCodeBtn" ).click(function() {
-                
+
                 var $this = $(this);
                 
                 $this.toggleClass("text_change");

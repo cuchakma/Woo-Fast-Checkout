@@ -57,7 +57,7 @@
 
 													<span>
 
-														<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_qty ); ?>"><?php echo wp_kses_post( $product_qty ); ?></span>
+														<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_price ); ?>"><?php echo wp_kses_post( '$'.$product_price ); ?></span>
 
 													</span>
 												</span>
