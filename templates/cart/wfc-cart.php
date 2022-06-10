@@ -14,17 +14,17 @@
 			<div class="wfc_cart_body">	
 					<?php
 
-						wfc_load_template( 
-							'wfc-cart-headers.php', 
-							array( 
+						wfc_load_template(
+							'wfc-cart-headers.php',
+							array(
 								'cart_count'  => $cart_count,
-								'cart_status' => $cart_status 
-							), 
-							'woocommerce-fast-checkout/templates/cart', 
-							WFC_TEMPLATES . 'cart/' 
+								'cart_status' => $cart_status,
+							),
+							'woocommerce-fast-checkout/templates/cart',
+							WFC_TEMPLATES . 'cart/'
 						);
 
-					?>
+						?>
 
 					<div class="wfc_list_wrap">
 
@@ -41,7 +41,7 @@
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
 								);
-							?>
+								?>
 
 						</ul>
 						
@@ -67,13 +67,13 @@
 									array(
 										'cart_products' => $cart_products,
 										'cart_status'   => $cart_status,
-										'cart_total'	=> $cart_total
+										'cart_total'    => $cart_total,
 									),
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
 								);
 
-							?>
+								?>
 	
 						</div>
 
@@ -81,12 +81,12 @@
 								wfc_load_template(
 									'wfc-footer.php',
 									array(
-										'cart_status' => $cart_status
+										'cart_status' => $cart_status,
 									),
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
 								);
-							?>
+								?>
 
 					</div>
 

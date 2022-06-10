@@ -1,5 +1,5 @@
 <?php
-if( ! $cart_status ){
+if ( ! $cart_status ) {
 	foreach ( $cart_products as $cart_key => $cart_item ) {
 
 		$product_id = $cart_item['product_id'];
@@ -41,7 +41,7 @@ if( ! $cart_status ){
 
 							<span>
 
-								<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_price ); ?>"><?php echo wp_kses_post( '$'.$product_price ); ?></span>
+								<span class="money" data-currency-usd="<?php echo wp_kses_post( $product_price ); ?>"><?php echo wp_kses_post( '$' . $product_price ); ?></span>
 
 							</span>
 						</span>
@@ -94,10 +94,9 @@ if( ! $cart_status ){
 
 	?>
 		   <li class="wfc_no_product">
-                No Product in Cart
-            </li>
+				No Product in Cart
+			</li>
 	<?php
 
 }
 ?>
-

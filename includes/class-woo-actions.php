@@ -20,14 +20,14 @@ class Woo_Actions {
 
 		ob_start();
 
-		wfc_load_template( 
-			'wfc-cart-headers.php', 
-			array( 
+		wfc_load_template(
+			'wfc-cart-headers.php',
+			array(
 				'cart_count'  => $cart_count,
-				'cart_status' => $cart_check  
-			), 
-			'woocommerce-fast-checkout/templates/cart', 
-			WFC_TEMPLATES . 'cart/' 
+				'cart_status' => $cart_check,
+			),
+			'woocommerce-fast-checkout/templates/cart',
+			WFC_TEMPLATES . 'cart/'
 		);
 
 		$fragments['div.wfc_title'] = ob_get_clean();
@@ -56,7 +56,7 @@ class Woo_Actions {
 			'wfc-cart-coupon.php',
 			array(
 				'cart_products' => $cart_products,
-				'cart_status'   => 	$cart_check,
+				'cart_status'   => $cart_check,
 			),
 			'woocommerce-fast-checkout/templates/cart',
 			WFC_TEMPLATES . 'cart/'
@@ -71,7 +71,7 @@ class Woo_Actions {
 			array(
 				'cart_products' => $cart_products,
 				'cart_status'   => $cart_check,
-				'cart_total'    => $cart_total
+				'cart_total'    => $cart_total,
 			),
 			'woocommerce-fast-checkout/templates/cart',
 			WFC_TEMPLATES . 'cart/'
@@ -84,7 +84,7 @@ class Woo_Actions {
 		wfc_load_template(
 			'wfc-footer.php',
 			array(
-				'cart_status' => $cart_check
+				'cart_status' => $cart_check,
 			),
 			'woocommerce-fast-checkout/templates/cart',
 			WFC_TEMPLATES . 'cart/'
