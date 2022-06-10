@@ -14,20 +14,38 @@
 			<div class="wfc_cart_body">	
 					<?php
 
-						wfc_load_template( 'wfc-cart-headers.php', array( '' ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
-
-						wfc_load_template(
-							'wfc-product-list.php',
-							array(
-								'cart_products' => $cart_products,
-								'cart_status'   => $cart_status,
-							),
-							'woocommerce-fast-checkout/templates/cart',
-							WFC_TEMPLATES . 'cart/'
+						wfc_load_template( 
+							'wfc-cart-headers.php', 
+							array( 
+								'cart_count'  => $cart_count,
+								'cart_status' => $cart_status 
+							), 
+							'woocommerce-fast-checkout/templates/cart', 
+							WFC_TEMPLATES . 'cart/' 
 						);
 
+					?>
 
-						?>
+					<div class="wfc_list_wrap">
+
+						<ul class="wfc_list wfc_list_item">
+
+							<?php
+
+								wfc_load_template(
+									'wfc-product-list.php',
+									array(
+										'cart_products' => $cart_products,
+										'cart_status'   => $cart_status,
+									),
+									'woocommerce-fast-checkout/templates/cart',
+									WFC_TEMPLATES . 'cart/'
+								);
+							?>
+
+						</ul>
+						
+					</div>
 
 					<div class="wfc_cart_footer">
 
@@ -49,6 +67,7 @@
 									array(
 										'cart_products' => $cart_products,
 										'cart_status'   => $cart_status,
+										'cart_total'	=> $cart_total
 									),
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
@@ -61,7 +80,9 @@
 							<?php
 								wfc_load_template(
 									'wfc-footer.php',
-									array(''),
+									array(
+										'cart_status' => $cart_status
+									),
 									'woocommerce-fast-checkout/templates/cart',
 									WFC_TEMPLATES . 'cart/'
 								);

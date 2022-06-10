@@ -18,7 +18,11 @@
 
 			$cart_status = $cart->is_empty();
 
-			wfc_load_template( 'wfc-cart.php', array( 'cart_products' => $cart_products, 'cart_status' => $cart_status ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
+			$cart_count = $cart->get_cart_contents_count();
+
+			$cart_total = $cart->get_cart_contents_total();
+			
+			wfc_load_template( 'wfc-cart.php', array( 'cart_products' => $cart_products, 'cart_status' => $cart_status, 'cart_count' => $cart_count, 'cart_total' => $cart_total ), 'woocommerce-fast-checkout/templates/cart', WFC_TEMPLATES . 'cart/' );
 
 		?>
 	</div>

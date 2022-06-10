@@ -14,7 +14,27 @@ class Woo_Actions {
 
 		$cart_products = $woocommerce_cart->get_cart();
 
+		$cart_count = $woocommerce_cart->get_cart_contents_count();
+
+		$cart_total = $woocommerce_cart->get_cart_contents_total();
+
 		ob_start();
+
+		wfc_load_template( 
+			'wfc-cart-headers.php', 
+			array( 
+				'cart_count'  => $cart_count,
+				'cart_status' => $cart_check  
+			), 
+			'woocommerce-fast-checkout/templates/cart', 
+			WFC_TEMPLATES . 'cart/' 
+		);
+
+		$fragments['div.wfc_title'] = ob_get_clean();
+
+		ob_start();
+
+		echo '<ul class="wfc_list wfc_list_item">';
 
 		wfc_load_template(
 			'wfc-product-list.php',
@@ -26,7 +46,51 @@ class Woo_Actions {
 			WFC_TEMPLATES . 'cart/'
 		);
 
-		$fragments['div.wfc_list_wrap'] = ob_get_clean();
+		echo '</ul>';
+
+		$fragments['ul.wfc_list'] = ob_get_clean();
+
+		ob_start();
+
+		wfc_load_template(
+			'wfc-cart-coupon.php',
+			array(
+				'cart_products' => $cart_products,
+				'cart_status'   => 	$cart_check,
+			),
+			'woocommerce-fast-checkout/templates/cart',
+			WFC_TEMPLATES . 'cart/'
+		);
+
+		$fragments['div.wfc_cart_footer_top_left'] = ob_get_clean();
+
+		ob_start();
+
+		wfc_load_template(
+			'wfc-cart-total.php',
+			array(
+				'cart_products' => $cart_products,
+				'cart_status'   => $cart_check,
+				'cart_total'    => $cart_total
+			),
+			'woocommerce-fast-checkout/templates/cart',
+			WFC_TEMPLATES . 'cart/'
+		);
+
+		$fragments['div.wfc_cart_footer_top_right'] = ob_get_clean();
+
+		ob_start();
+
+		wfc_load_template(
+			'wfc-footer.php',
+			array(
+				'cart_status' => $cart_check
+			),
+			'woocommerce-fast-checkout/templates/cart',
+			WFC_TEMPLATES . 'cart/'
+		);
+
+		$fragments['div.wfc_cart_footer_bottom'] = ob_get_clean();
 
 		return $fragments;
 	}

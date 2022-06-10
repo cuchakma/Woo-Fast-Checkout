@@ -6,10 +6,14 @@
 
     </button>
 
+    <?php if( ! $cart_status ) :?>
+
     <button class="btn btn-primary">
 
         Checkout <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 
     </button>
+
+    <?php endif; ?>
     
 </div>

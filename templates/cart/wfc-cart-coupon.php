@@ -1,6 +1,3 @@
-<?php
-	/** Cart Coupon Start **/
-?>
 <div class="wfc_cart_footer_top_left">
 
 	<div class="wfc_applyCouponCode">
@@ -16,7 +13,3 @@
 	</div>
 
 </div>
-
-<?php
-	/** Cart Coupon Start **/
-?>
